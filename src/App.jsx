@@ -1,4 +1,4 @@
-import AddModal from "./components/AddModal";
+
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
@@ -12,7 +12,7 @@ const App = () => {
       <Hero></Hero>
       <Table></Table>
       <Footer></Footer>
-      <AddModal></AddModal>
+      
     </div>
   );
 };

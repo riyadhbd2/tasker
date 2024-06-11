@@ -2,25 +2,35 @@ import { useState } from "react";
 import SearchBox from "./SearchBox";
 import TableContent from "./TableContent";
 import TaskControl from "./TaskControl";
+import AddModal from "./AddModal";
 
 const Table = () => {
-    const [modal, setModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  console.log(showModal);
+  
 
-  const openModal = () =>{
+  const handleOpenModal = () => {
+    setShowModal(true);
     
-    setModal(!modal);
-  } 
-  return (
-    <div className="mb-20" id="tasks">
-      <div className="container">
-        <SearchBox></SearchBox>
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
 
-        <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
-          <TaskControl openModal={openModal}></TaskControl>
-          <TableContent></TableContent>
+  };
+  return (
+    <>
+      <div className="mb-20" id="tasks">
+        <div className="container">
+          <SearchBox></SearchBox>
+
+          <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
+            <TaskControl openModal={handleOpenModal}></TaskControl>
+            <TableContent></TableContent>
+          </div>
         </div>
       </div>
-    </div>
+      <AddModal show = {showModal} closeModal = {handleCloseModal}></AddModal>
+    </>
   );
 };
 
