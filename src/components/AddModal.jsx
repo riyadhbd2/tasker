@@ -1,8 +1,24 @@
+import { useState } from "react";
+
 const AddModal = ({show, closeModal}) => {
+
+  const [toggle, setToggle] = useState(false); 
+
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    const form = e.target;
+    const title = form.title.value;
+    const description = form.description.value;
+    const tags = form.tags.value;
+    const priority = form.priority.value;
+    console.log(title, description, tags, priority);
+
+  }
   
   return (
     <div className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center ${show ? 'block' :'hidden'}`}>
-      <form className="mx-auto my-10 w-full max-w-[740px] rounded-xl border border-[#FEFBFB]/[30%] bg-[#191D26] p-9 max-md:px-4 lg:my-20 lg:p-11">
+      <form onSubmit={handleSubmit} className="mx-auto my-10 w-full max-w-[740px] rounded-xl border border-[#FEFBFB]/[30%] bg-[#191D26] p-9 max-md:px-4 lg:my-20 lg:p-11">
         <button onClick={closeModal} className="text-xl px-1">(x)</button>
         <h2 className="mb-9 text-center text-2xl font-bold text-white lg:mb-11 lg:text-[28px]">
           Add New Task
