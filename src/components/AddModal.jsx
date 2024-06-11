@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const AddModal = ({show, closeModal}) => {
 
-  const [toggle, setToggle] = useState(false); 
+const AddModal = ({show, closeModal, datas}) => {
+
+  const [formData, setFormData] = useState([]);
 
 
   const handleSubmit = (e) =>{
@@ -13,6 +14,15 @@ const AddModal = ({show, closeModal}) => {
     const tags = form.tags.value;
     const priority = form.priority.value;
     console.log(title, description, tags, priority);
+
+    const newEntry = {
+      title,
+      description,
+      tags: tags.split(',').map(tag => tag.trim()),
+      priority
+    }
+    setFormData([...formData, newEntry]);
+    datas(formData);
 
   }
   
