@@ -1,11 +1,15 @@
-import React from "react";
-import Header from "./components/Header";
+import Footer from "./Footer";
+import Header from "./Header";
+import Hero from "./Hero";
+
+
 
 const App = () => {
   return (
     <div>
-      <h1>Welcome to tasker</h1>
       <Header></Header>
+      <Hero></Hero>
+      <Footer></Footer>
     </div>
   );
 };
