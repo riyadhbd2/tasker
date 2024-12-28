@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskAction = ({onAddClick}) => {
+const TaskAction = ({onAddClick, handleAllDelete}) => {
   return (
     <div>
       {/* task action start */}
@@ -10,7 +10,7 @@ const TaskAction = ({onAddClick}) => {
           <button onClick={onAddClick} className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold">
             Add Task
           </button>
-          <button className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold">
+          <button onClick={handleAllDelete} className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold">
             Delete All
           </button>
         </div>

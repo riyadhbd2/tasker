@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskList = ({ tasks, onEdit }) => {
+const TaskList = ({ tasks, onEdit, onDelete }) => {
   return (
     <div>
       <div className="overflow-auto">
@@ -89,7 +89,7 @@ const TaskList = ({ tasks, onEdit }) => {
                 <td className="text-center">{task.priority}</td>
                 <td>
                   <div className="flex items-center justify-center space-x-3">
-                    <button className="text-red-500">Delete</button>
+                    <button onClick={()=>onDelete(task.id)} className="text-red-500">Delete</button>
                     <button onClick={()=>onEdit(task)} className="text-blue-500">Edit</button>
                   </div>
                 </td>

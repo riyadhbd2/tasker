@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddTaskModal = ({ onSave, taskForUpdate }) => {
+const AddTaskModal = ({ onSave, taskForUpdate, onCloseClick }) => {
   const [task, setTask] = useState(taskForUpdate || {
     id: crypto.randomUUID(),
     title: "",
@@ -99,13 +99,20 @@ const AddTaskModal = ({ onSave, taskForUpdate }) => {
           </div>
         </div>
         {/* <!-- inputs ends --> */}
-        <div className="mt-16 flex justify-center lg:mt-20">
+        <div className="mt-16 flex justify-center lg:mt-20 gap-3">
           <button
             type="button"
             className="rounded bg-blue-600 px-4 py-2 text-white transition-all hover:opacity-80"
             onClick={() => onSave(task, isAdd)}
           >
             Save
+          </button>
+          <button
+            type="button"
+            className="rounded bg-red-600 px-4 py-2 text-white transition-all hover:opacity-80"
+            onClick={onCloseClick}
+          >
+            Close
           </button>
         </div>
       </form>
