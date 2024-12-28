@@ -45,18 +45,32 @@ const TaskBoard = () => {
     setTaskToUpdate(null);
   };
 
-   //Task delete function
-   const handleDeleteTask = (taskId) =>{
-    const taskAfterDelete = tasks.filter(task=>task.id ==! taskId);
+  //Task delete function
+  const handleDeleteTask = (taskId) => {
+    const taskAfterDelete = tasks.filter((task) => task.id == !taskId);
     setTasks(taskAfterDelete);
-   }
+  };
 
-//    All Delete
-const handleDeleteAll = ()=>{
+  //    All Delete
+  const handleDeleteAll = () => {
     const remainig = [];
     setTasks(remainig);
-}
+  };
 
+  const handleFavorite = (id) =>{
+    console.log(id);
+    const taskIndex = tasks.findIndex(task => task.id === id );
+    
+    const newTasks = [...tasks];
+
+    newTasks[taskIndex].isFavorite = !newTasks[taskIndex].isFavorite;
+
+    setTasks(newTasks);
+
+   
+
+
+  }
 
   return (
     <div className="container mx-auto">
@@ -71,8 +85,16 @@ const handleDeleteAll = ()=>{
         <div className="container">
           <Searchtask></Searchtask>
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
-            <TaskAction handleAllDelete={handleDeleteAll} onAddClick={() => setShowAddModal(true)}></TaskAction>
-            <TaskList onDelete={handleDeleteTask} onEdit={handleEditTask} tasks={tasks}></TaskList>
+            <TaskAction
+              handleAllDelete={handleDeleteAll}
+              onAddClick={() => setShowAddModal(true)}
+            ></TaskAction>
+            <TaskList
+              onDelete={handleDeleteTask}
+              onEdit={handleEditTask}
+              tasks={tasks}
+              handleToggle={handleFavorite}
+            ></TaskList>
           </div>
         </div>
       </section>
