@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './assets//lws-logo-en.svg'
+import logo from './assets/profile_logo.jpg'
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
 		<div className="container mx-auto flex items-center justify-between gap-x-6">
 			{/* <!-- Logo --> */}
 			<a href="/">
-				<img className="h-[45px]" src={logo} alt="Lws" />
+				<img className="w-20" src={logo} alt="Lws" />
 			</a>
 			{/* <!-- Logo Ends --> */}
 		</div>
